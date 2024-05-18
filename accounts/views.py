@@ -19,8 +19,8 @@ def base(request):
 def import_accounts(request):
     if request.method=='POST':
         csv_file = request.FILES['file']
-        if not csv_file.name.endswith('.csv'):
-            messages.error(request, 'This is not a CSV file')
+        if not csv_file.name.endswith('.csv') and not csv_file.name.endswith('.xlsx'):
+            messages.error(request, 'This is not a CSV file or XLSX file')
             return redirect('import_accounts')
 
         try:
@@ -34,7 +34,7 @@ def import_accounts(request):
             messages.success(request, 'Accounts imported successfully')
             return redirect('list_accounts')
         except Exception as ex:
-            messages.success(request, str(ex) + ' (this file has been imported before)')
+            messages.success(request, ex)
 
     return render(request,'import_accounts.html')
 
