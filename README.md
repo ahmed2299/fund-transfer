@@ -5,7 +5,7 @@ This is a Django web application that handles fund transfers between two account
 ## Features
 
 
-- Import accounts from CSV or XLSX files.
+- Import accounts from CSV or XLSX files, use "accounts.csv" file for usage to import for testing.
 - List all accounts.
 - Get account information.
 - Transfer funds between two accounts.
