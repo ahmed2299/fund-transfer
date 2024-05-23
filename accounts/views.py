@@ -68,7 +68,7 @@ def transfer_funds(request,id):
             messages.success(request, 'Transferred successfully')
             return redirect('list_accounts')
         else:
-            messages.error(request, 'The ammount of funds you want to send should be less than your balance')
+            messages.error(request, 'The amount of funds you want to send should be less than your balance')
     accounts = Account.objects.all()
     accounts_data = {}
     for account in accounts:
